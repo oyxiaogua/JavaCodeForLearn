@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 
+import baseTest.BaseTest;
 import mybatis_plus.bean.TestUser;
 import mybatis_plus.dao.TestUserMapper;
 
@@ -74,5 +75,11 @@ public class TestMybatisPlusMapper extends BaseTest {
 		map.put("name", "'test'");
 		userMapper.deleteByMap(map);
 	}
+	
+	@Test
+    public void testSelectCount(){
+        int total=userMapper.selectCount(null);
+        log.info("total={}", total);
+    }
 
 }

@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import baseTest.BaseTest;
 import mybatis_plus.bean.TestUser;
 import mybatis_plus.service.ITestUserService;
 
