@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${driverClass}" />
+		<property name="url" value="${jdbcUrl}" />
+		<property name="username" value="${jdbcUserName}" />
+		<property name="password" value="${jdbcUserPwd}" />
+		<property name="initialSize" value="${minPoolSize}" />
+		<property name="minIdle" value="${minPoolSize}" />
+		<property name="maxActive" value="${maxPoolSize}" />
+		<property name="maxWait" value="60000" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<property name="validationQuery" value="select 1 from dual" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testOnReturn" value="false" />
+	</bean>
+
+	<bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+		<property name="typeAliasesPackage" value="mybatis_plus.bean" />
+		<property name="mapperLocations" value="classpath:mybatis/mapper/*Mapper.xml" />
+		<property name="plugins">
+			<array>
+				<bean id="paginationInterceptor" class="com.baomidou.mybatisplus.plugins.PaginationInterceptor">
+					<property name="dialectType" value="mysql" />
+				</bean>
+			</array>
+		</property>
+	</bean>
+	
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="mybatis_plus.dao" />
+	</bean>
+
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>
