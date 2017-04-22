@@ -1,4 +1,4 @@
-package baseTest;
+package base;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;

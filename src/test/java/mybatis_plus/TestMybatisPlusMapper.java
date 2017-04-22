@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 
-import baseTest.BaseTest;
+import base.BaseTest;
 import mybatis_plus.bean.TestUser;
 import mybatis_plus.dao.TestUserMapper;
 
