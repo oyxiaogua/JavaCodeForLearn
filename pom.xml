@@ -32,9 +32,30 @@
 		<awaitility.version>3.0.0-rc3</awaitility.version>
 		<logback-core.version>1.2.3</logback-core.version>
 		<slf4j-api.version>1.7.25</slf4j-api.version>
+		<poi-tl.version>1.0.1-Beta1</poi-tl.version>
+		<pagehelper.version>5.0.3</pagehelper.version>
+		<mapper.version>3.4.0</mapper.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+			<version>${mapper.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>${pagehelper.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.deepoove</groupId>
+			<artifactId>poi-tl</artifactId>
+			<version>${poi-tl.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.turn</groupId>
 			<artifactId>ttorrent-core</artifactId>
@@ -202,7 +223,7 @@
 			<artifactId>commons-dbcp2</artifactId>
 			<version>${commons-dbcp2.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.bytebuddy</groupId>
 			<artifactId>byte-buddy</artifactId>
