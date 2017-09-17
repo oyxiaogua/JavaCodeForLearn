@@ -35,9 +35,16 @@
 		<poi-tl.version>1.0.1-Beta1</poi-tl.version>
 		<pagehelper.version>5.0.3</pagehelper.version>
 		<mapper.version>3.4.0</mapper.version>
+		<mjson.version>1.4.1</mjson.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.sharegov</groupId>
+			<artifactId>mjson</artifactId>
+			<version>${mjson.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>tk.mybatis</groupId>
 			<artifactId>mapper</artifactId>
